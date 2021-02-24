@@ -34,8 +34,6 @@ export default {
 		}
 	},
 	methods:{
-		
-
 		changePosition(event){
 			let xClicked, yClicked, 
 					xEmpty, yEmpty
