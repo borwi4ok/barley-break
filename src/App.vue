@@ -1,28 +1,81 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <div class="container_media">
+        <video
+          class="container_media-video"
+          src="./assets/galaxy-video.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+      </div>
+      <div class="container_content">asdasdsa</div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  name: 'App'
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.container {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
+
+.container_media::before {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* if video won't load, show image */
+.container_media {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #334858 url('./assets/galaxy-image.jpg') no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.container_media-video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.container_content {
+  z-index: 10;
+  color: #fff;
+}
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'sans-serif';
+}
+
 </style>
